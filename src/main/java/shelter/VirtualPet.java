@@ -15,7 +15,9 @@ public class VirtualPet {
         this.boredom = boredom;
 
     }
-
+public String getAnimalName(){
+        return animalName;
+}
     public int getHunger() {
         return hunger;
     }

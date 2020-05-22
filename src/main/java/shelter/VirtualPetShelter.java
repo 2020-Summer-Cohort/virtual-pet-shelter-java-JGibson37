@@ -11,5 +11,13 @@ public class VirtualPetShelter {
     public Collection<VirtualPet> getAllAnimals(){
         return animals.values();
     }
+    public void acceptNewAnimal (VirtualPet newPet){
+        animals.put(newPet.getAnimalName(),newPet);
+    }
+    public void adopted (String animalName){
+        animals.remove(animalName);
+    }
+    }
+
 }
 
