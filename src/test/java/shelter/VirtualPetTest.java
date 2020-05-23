@@ -33,23 +33,23 @@ public class VirtualPetTest {
     @Test
     public void shouldFeedPets(){
         VirtualPet underTest = new VirtualPet("animal","animalDescription",10,10,10);
-        underTest.feedPet(15);
+        underTest.feedPet();
         int hunger =underTest.getHunger();
-        assertEquals(hunger, -15);
+        assertEquals(-5, hunger);
     }
     @Test
     public void shouldWaterPets(){
         VirtualPet underTest = new VirtualPet("animal","animalDescription",10,10,10);
-        underTest.waterPet(15);
+        underTest.waterPet();
         int thirst = underTest.getThirst();
-        assertEquals(thirst, -15);
+        assertEquals(-5, thirst);
     }
     @Test
     public void shouldPlayPet(){
         VirtualPet underTest = new VirtualPet("animalName","animalDescription",10,10,10);
-        underTest.playWithPet(15);
+        underTest.playWithPet();
         int play = underTest.getBoredom() ;
-        assertEquals(play, -15);
+        assertEquals(-5, play);
     }
 
 }

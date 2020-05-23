@@ -13,9 +13,17 @@ public class VirtualPet {
         this.hunger = hunger;
         this.thirst = thirst;
         this.boredom = boredom;
+    }
+    public VirtualPet(String animalName,String animalDescription) {
+        this.animalName = animalName;
+        this.animalDescription = animalDescription;
+        hunger = 20;
+        thirst = 20;
+        boredom =20;
+
 
     }
-public String getAnimalName(){
+    public String getAnimalName(){
         return animalName;
 }
     public int getHunger() {
@@ -36,18 +44,18 @@ public String getAnimalName(){
         thirst += 5;
     }
 
-    public int feedPet(int feed) {
-        hunger -= feed;
+    public int feedPet() {
+        hunger -= 15;
         return hunger;
     }
 
-    public int waterPet(int water) {
-        thirst -= water;
+    public int waterPet() {
+        thirst -= 15;
         return thirst;
     }
 
-    public int playWithPet(int play) {
-        boredom -= play;
-        return play;
+    public int playWithPet() {
+        boredom -= 15;
+        return boredom;
     }
 }
