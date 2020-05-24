@@ -20,8 +20,6 @@ public class VirtualPet {
         hunger = 20;
         thirst = 20;
         boredom =20;
-
-
     }
     public String getAnimalName(){
         return animalName;
