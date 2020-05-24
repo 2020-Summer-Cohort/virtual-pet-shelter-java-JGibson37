@@ -30,4 +30,9 @@ public class VirtualPetShelter {
             petToWater.waterPet();
         }
     }
+    public void tickAll(){
+        for(VirtualPet tickAll : animals.values()){
+            tickAll.Tick();
+        }
+    }
 }
