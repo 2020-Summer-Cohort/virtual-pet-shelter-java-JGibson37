@@ -13,18 +13,18 @@ public class VirtualPetShelterApp {
     VirtualPet johanna = new VirtualPet("Johanna", " A Ram with a knack for ramming.");
     VirtualPet stella = new VirtualPet("Stella", "A Stork who misses delivering babies.");
     VirtualPet jerry = new VirtualPet("Jerry", "A mouse said to have conquered a cat.");
+    virtualPetShelter.acceptNewAnimal(queen);
+    virtualPetShelter.acceptNewAnimal(johanna);
+    virtualPetShelter.acceptNewAnimal(stella);
+    virtualPetShelter.acceptNewAnimal(jerry);
 
     boolean gameRun = true;
 
         while(gameRun){
-            virtualPetShelter.acceptNewAnimal(queen);
-            virtualPetShelter.acceptNewAnimal(johanna);
-            virtualPetShelter.acceptNewAnimal(stella);
-            virtualPetShelter.acceptNewAnimal(jerry);
-            System.out.println("Welcome to the shelter, these pets are depending on you for their needs.");
-            System.out.println("Name     |Hunger     |Thirst     |Boredom");
-            System.out.println("=========|===========|===========|=======");
-            System.out.println(virtualPetShelter.getAllAnimals());
+            System.out.println("Welcome to the shelter, these pets are depending on you for their needs." + "\n");
+            System.out.println("Name•Hunger•Thirst•Boredom");
+            virtualPetShelter.getAllAnimals();
+            beginningScroll();
             int getAction = userInput.nextInt();
             userInput.nextLine();
             if (getAction == 0){
@@ -34,27 +34,39 @@ public class VirtualPetShelterApp {
             }else if(getAction == 2){
                 virtualPetShelter.waterAll();
             }else if(getAction == 3){
-                //PLAY WITH SPECIFIC PET
                 System.out.println("Who would you like to play with?");
-                System.out.println(virtualPetShelter.getAllAnimals());
-                String getAnimal = userInput.nextLine();
-                if (getAnimal = //NAME OF ANIMAL IN MAP)
-                
+                String typed = userInput.nextLine();
+                if (virtualPetShelter.playWithPet(typed) == true){
+                    System.out.println("you played with " + typed);
+                }else {
+                    System.out.println("You entered an invalid pet name. Check your capitals!");
+                }
             }else if(getAction == 4){
                 System.out.println("Who is being adopted?");
                 virtualPetShelter.adopted(userInput.nextLine());
-                System.out.println("Remember to thank the new owner for choosing adoption!");
+                System.out.println("Remember to thank the new owner for choosing adoption!" + "/n");
             }else if(getAction == 5){
-                String name;
-                String description;
                 System.out.println("What is the pets Name?");
-                name = userInput.nextLine();
+                String  name = userInput.nextLine();
                 System.out.println("What is the pets Description?");
-                description = userInput.nextLine();
+                String description = userInput.nextLine();
                 virtualPetShelter.acceptNewArrival(name,description);
+            }else if(getAction == 6){
+                virtualPetShelter.retrieveAnimalNameAndDescription();
+                System.out.println("");
             }
+            virtualPetShelter.tickAll();
         }
 
     }
 
+    private static void beginningScroll() {
+        System.out.println("\n" +"What would you like to do with the pets?");
+        System.out.println("1. Feed All Pets.");
+        System.out.println("2. Water All Pets.");
+        System.out.println("3. Play with a pet.");
+        System.out.println("4. Adopt out a pet");
+        System.out.println("5. Accept a pet into the shelter.");
+        System.out.println("6. Name and Description of all pets in the shelter.");
+    }
 }

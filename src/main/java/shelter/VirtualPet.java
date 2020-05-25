@@ -24,6 +24,9 @@ public class VirtualPet {
     public String getAnimalName(){
         return animalName;
 }
+    public String getAnimalDescription(){
+        return animalDescription;
+    }
     public int getHunger() {
         return hunger;
     }
@@ -52,8 +55,16 @@ public class VirtualPet {
         return thirst;
     }
 
-    public int playWithPet() {
+    public int playPet() {
         boredom -= 15;
         return boredom;
+    }
+
+    @Override
+    public String toString() {
+        return animalName + "•"+
+                hunger + "•"+
+                + thirst + "•"+
+                + boredom ;
     }
 }

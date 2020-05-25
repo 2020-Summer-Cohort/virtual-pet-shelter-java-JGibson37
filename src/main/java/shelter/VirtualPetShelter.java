@@ -1,28 +1,23 @@
 package shelter;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 
 public class VirtualPetShelter {
 
     Map<String, VirtualPet> animals = new HashMap<>();
-    VirtualPet virtualPet = new VirtualPet("name" , "description");
 
-    public Collection<VirtualPet> getAllAnimals(){
-         return animals.values();
+    public void  getAllAnimals(){
+         for(VirtualPet pet : animals.values()){
+             System.out.println(pet);
+         }
     }
-    public void retrieveSpecificPet(VirtualPet specificPet){
-        animals.get(specificPet.getAnimalName());
-    }
-    public void acceptNewAnimal (VirtualPet virtualPet){
-        animals.put(virtualPet.getAnimalName(),virtualPet);
+    public void acceptNewAnimal (VirtualPet pet){
+        animals.put(pet.getAnimalName(),pet);
     }
     public void acceptNewArrival (String name, String description){
-        System.out.println(name + description);
-        animals.put(name, );
+        animals.put(name, new VirtualPet(name, description) );
     }
     public void adopted (String animalName){
         animals.remove(animalName);
@@ -37,9 +32,23 @@ public class VirtualPetShelter {
             petToWater.waterPet();
         }
     }
+    public boolean playWithPet(String name){
+        if(animals.containsKey(name)) {
+            animals.get(name).playPet();
+            return true;
+        }else{
+            return false;
+        }
+    }
     public void tickAll(){
         for(VirtualPet tickAll : animals.values()){
             tickAll.Tick();
+        }
+    }
+
+    public void retrieveAnimalNameAndDescription() {
+        for (VirtualPet animal : animals.values()){
+            System.out.println(animal.getAnimalName() + " : " + animal.getAnimalDescription());
         }
     }
 }
